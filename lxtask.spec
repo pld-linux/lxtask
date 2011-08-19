@@ -41,7 +41,10 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/{frp,ur_PK}
+# duplicate of ur
+%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/ur_PK
+# unsupported by glibc
+%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/frp
 
 %find_lang %{name}
 
